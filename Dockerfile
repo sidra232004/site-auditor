@@ -12,5 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/app ./app
 COPY --from=frontend /app/dist ./static
 ENV STATIC_DIR=/app/static
+# /app isn't writable for the non-root user some hosts (e.g. Hugging Face Spaces) run as.
+ENV DATABASE_URL=sqlite:////tmp/audits.db
 EXPOSE 8000
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

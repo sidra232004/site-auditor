@@ -1,3 +1,13 @@
+---
+title: Site Auditor
+emoji: 🔍
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 8000
+pinned: false
+---
+
 # Site Auditor
 
 Enter a website URL and get an interactive report on what's wrong with it: performance, accessibility,
